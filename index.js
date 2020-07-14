@@ -41,7 +41,7 @@ let aTimesb = (a,b) => a*b;
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
 function myAgeinDogYears(myAge) {
-    return myAge * 7;
+    console.log(myAge * 7);
 }
 
 
@@ -117,8 +117,6 @@ function rockPaperScissor(yourMove) {
         return "you lose!";
     }
 }
-
-console.log(rockPaperScissor(rock));
   
   
 
@@ -184,25 +182,46 @@ function feetToCM(feet) {
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method  
 
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
 function countVowels(str) {
     let totalVowels = 0;
     let newStr = str.toString().toLowerCase();
     for (let i = 0; i < newStr.length; i++) {
-        if((newStr(i) === ('a' || 'e' || 'i' || 'o' || 'u' ))) {
+        if(vowels.includes(newStr[i])) {
             totalVowels+=1;
         } 
     }
     return totalVowels;
   }
 
-console.log(countVowels('Word'))
-
 
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
+function rockPaperScissor(yourMove) {
+    var rock = 'rock';
+    var paper = 'paper';
+    var scissors = 'scissors';
 
+    var computerMove = Math.ceil(Math.random()*3);
+    if(computerMove === 1) {
+    computerMove = rock;
+    } else if(computerMove === 2) {
+    computerMove = paper;
+    } else {
+    computerMove = scissors;
+    }
 
+    if(yourMove === computerMove){
+        console.log("Same move, go again");
+    } else if((yourMove === rock) && (computerMove === scissors) || ((yourMove === paper) && (computerMove === rock)) || ((yourMove === scissors) && (computerMove === paper))) {
+        console.log("winner winner chicken dinner");
+    } else {
+        console.log("you lose!");
+    }
+}
 
-
+yourMove = window.prompt('rock, paper or scissors?').toString().toLowerCase();
+rockPaperScissor(yourMove);
