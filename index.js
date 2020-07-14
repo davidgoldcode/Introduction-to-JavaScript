@@ -64,7 +64,25 @@ function myAgeinDogYears(myAge) {
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
+  function myDogFeed(weight, age) {
+    if (age >= 1) {
+        if (15 >= weight && weight >= 11) {
+            return weight * .03;
+        } else if (10 >= weight && weight >= 6) {
+            return weight * .04;
+        } else if (5 >= weight) {
+            return weight * .05;
+        } else {
+            return weight *.02;
+        }
+    } else { 
+        if (.5 > age && age >= .25 ) {
+            return weight * .05; 
+        } else {
+            return weight * .04;
+        }
+    }
+}
 
 
 
